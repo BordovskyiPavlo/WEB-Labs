@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<form>
+  <table>
+    <tr>
+      <th colspan="4">Pizza Shop 2.0</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th><input type="text" placeholder="Name" required /></th>
+    </tr>
+    <tr>
+      <th rowspan="2">Pizza Topping</th>
+      <td>
+        <input type="radio" name="radiobutton" checked>Supreme<br>
+        <input type="radio" name="radiobutton" checked>Vagetarian<br>
+        <input type="radio" name="radiobutton" checked>Hawaiian
+      </td>
+    </tr>
+    <tr></tr>
+    <tr>
+      <th>Pizza Sauce</th>
+      <th>
+        <select>
+          <option selected value="Tomato">Tomato</option>
+          <option value="Cheese">Cheese</option>
+          <option value="BBQ">BBQ</option>
+        </select>
+      </th>
+    </tr>
+    <tr>
+      <th>Optional Extras</th>
+      <td>
+        <input type="checkbox" checked> Extra Cheese
+        <input type="checkbox"> Gluten Free Base
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2">
+        <a>Delivery Instructions: </a><br>
+        <textarea cols="30" rows="10"></textarea>
+      </th>
+    </tr>
+    <tr>
+      <th colspan="2"><button >Send my order</button> </th>
+    </tr>
+  </table>
+</form>
+</body>
+</html>
