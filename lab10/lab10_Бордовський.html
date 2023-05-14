@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="style.css">
+    <style>
+        aside {
+            background: yellow;
+            max-width: 200px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+<button id="languages" onclick="readTextFile('1.txt','languages')">Мови</button>
+<button id="students" onclick="readTextFile('2.txt','students')">студенти</button>
+<aside id="text"></aside>
+<script>
+    function readTextFile(file,id) {
+        let rawFile= new XMLHttpRequest();
+        rawFile.open("GET",file,false);
+        rawFile.onreadystatechange = function (){
+            if(rawFile.readyState === 4) {
+                if(rawFile.status === 200 || rawFile.status == 0) {
+                    let rawText = rawFile.responseText;
+                    let text = JSON.parse(rawText);
+                    id === "languages"? document.getElementById("text").innerHTML = text.languages.join(" ") : document.getElementById("text").innerHTML = text.students.join(", ")
+                }
+            }
+        }
+        rawFile.send(null)
+    }
+</script>
+</body>
+</html>
