@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        p,h4{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+<button onclick="fetchCall()">Click</button>
+<h3>Погода в Лондоні</h3>
+<h4>Температура: </h4>
+<p id="1"></p>
+<h4>Швидкість вітра: </h4>
+<p id="2"></p>
+<h4>Вологість: </h4>
+<p id="3"></p>
+<script>
+    function fetchCall() {
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=London&appid=6007ce66334c43b027c7f75cb55dfd6f")
+            .then(response => {
+                if (!response.ok){
+                    throw new Error('Netword response was not ok');
+                }
+                return response.json();
+            })
+            .then(json =>{
+                let info = json;
+                console.log(info)
+                document.getElementById('1').innerHTML = Math.round(info["main"]["temp"] - 273,15)
+                document.getElementById('2').innerHTML= info["wind"]["speed"]
+                document.getElementById('3').innerHTML = info["main"]["humidity"]
+            })
+            .catch(error => {
+                console.error('There was a proble with the fetch op',error)
+            });
+    }
+</script>
+</body>
+</html>
